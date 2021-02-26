@@ -4,12 +4,12 @@ node {
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git branch: 'main',
-            url: 'https://github.com/amitmohleji/spring-petclinic.git'
+            url: 'https://github.com/dbroker13/spring-petclinic.git'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.           
+      // **       in the global configuration.
       mvnHome = tool 'maven3'
-   }    
+   }
    stage('Build') {
         sh "${mvnHome}/bin/mvn clean package -DskipTests=true -Dcheckstyle.skip"
    }
@@ -30,5 +30,5 @@ node {
        sh "chmod 777 xl"
        sh "./xl apply --xl-deploy-url http://xld:4516 -f xl-as-code/container-demo.yaml --values BUILD_NUMBER=$BUILD_NUMBER"
    }
-        
+
 }

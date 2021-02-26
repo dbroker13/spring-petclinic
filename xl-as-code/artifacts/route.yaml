@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: app-z
+spec:
+  host: app-z-petclinic.192.168.64.6.nip.io
+  to:
+    kind: Service
+    name: app-z
