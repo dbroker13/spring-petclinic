@@ -18,10 +18,10 @@ spec:
     tags:
     - gke
     - local
-  - name: ingress
+  - name: route
     type: k8s.ResourcesFile
     createOrder: "63"
-    file: !file "artifacts/ingress.yaml"
+    file: !file "artifacts/route.yaml"
     tags:
     - gke
     - local
