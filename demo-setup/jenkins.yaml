@@ -69,15 +69,15 @@ credentials:
         - usernamePassword:
             scope:    GLOBAL
             id:       cred
-            username: ${dockerhubuser:-dbroker13}
-            password: ${dockerhubpass}
+            username: $DOCKER_HUB_USER
+            password: $DOCKER_HUB_PASS
         - usernamePassword:
             scope:    GLOBAL
             id:       xld
             username: admin
-            password: ${xld_password:-admin}
+            password: admin
         - usernamePassword:
             scope:    GLOBAL
             id:       xlr
             username: admin
-            password: ${xlr_password:-admin}
+            password: admin

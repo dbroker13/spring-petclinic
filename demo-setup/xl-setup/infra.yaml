@@ -1,0 +1,21 @@
+---
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/David's Server
+  type: openshift.Server
+  serverUrl: https://192.168.64.6:8443
+  verifyCertificates: false
+  debug: true
+  children:
+  - name: namespace
+    type: openshift.Project
+    projectName: petclinic
+- name: Infrastructure/racher
+  type: k8s.Master
+  apiServerURL: https://192.168.7.65:6443
+  skipTLS: true
+  children:
+  - name: demo
+    type: k8s.Namespace
+    namespaceName: petclinic
